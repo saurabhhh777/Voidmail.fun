@@ -2,148 +2,130 @@ import { Link } from "react-router-dom";
 import {
   ShieldCheck,
   Lock,
-  Eye,
-  Database,
-  UserCheck
+  Ban,
+  AlertTriangle,
+  Terminal
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CtaSection from "../components/CtaSection";
 
-const PrivacyPolicy = () => {
+const Terms = () => {
   const sections = [
     {
-      title: "1. Information We Collect",
-      icon: <Database className="h-5 w-5" />,
+      title: "1. Introduction",
+      icon: <ShieldCheck className="h-5 w-5" />,
       content: (
         <>
-          <p className="mb-4">We collect minimal information to provide our service:</p>
+          <p className="mb-4">Welcome to Voidmail.fun ("Service"). These Terms of Service ("Terms") govern your access to and use of our temporary email service. By accessing or using the Service, you agree to be bound by these Terms.</p>
+          <p>If you do not agree to these Terms, you must immediately discontinue using our Service. Continued use constitutes acceptance of these Terms.</p>
+        </>
+      )
+    },
+    {
+      title: "2. Service Description",
+      icon: <Terminal className="h-5 w-5" />,
+      content: (
+        <>
+          <p className="mb-4">Voidmail.fun provides temporary, disposable email addresses ("Burner Emails") that:</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li>IP addresses for security and analytics</li>
-            <li>Browser information for compatibility</li>
-            <li>Usage data to improve our service</li>
-            <li>No personal information is required</li>
+            <li>Are automatically generated without registration</li>
+            <li>Can receive but not send emails</li>
+            <li>Automatically expire after 24 hours of inactivity</li>
+            <li>Provide a layer of privacy for your primary email</li>
           </ul>
         </>
       )
     },
     {
-      title: "2. How We Use Your Information",
-      icon: <Eye className="h-5 w-5" />,
-      content: (
-        <>
-          <p className="mb-4">Your information is used to:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Provide and maintain our email service</li>
-            <li>Improve user experience and functionality</li>
-            <li>Prevent abuse and ensure security</li>
-            <li>Analyze usage patterns for service optimization</li>
-          </ul>
-        </>
-      )
-    },
-    {
-      title: "3. Email Data Handling",
+      title: "3. User Responsibilities",
       icon: <Lock className="h-5 w-5" />,
       content: (
         <>
-          <p className="mb-4">Our email handling practices:</p>
+          <p className="mb-4">When using our Service, you agree to:</p>
           <ul className="list-disc pl-6 space-y-2">
+            <li>Use the Service only for lawful purposes</li>
+            <li>Not impersonate others or provide false information</li>
+            <li>Be solely responsible for your use of Burner Emails</li>
+            <li>Not rely on Burner Emails for critical communications</li>
+          </ul>
+        </>
+      )
+    },
+    {
+      title: "4. Prohibited Activities",
+      icon: <Ban className="h-5 w-5" />,
+      content: (
+        <>
+          <p className="mb-4">You may not use our Service to:</p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>Send spam, phishing emails, or malware</li>
+            <li>Harass, threaten, or defraud others</li>
+            <li>Violate any laws or regulations</li>
+            <li>Bypass security measures of other services</li>
+            <li>Engage in any fraudulent activity</li>
+          </ul>
+          <p>Violations may result in immediate termination of access without notice.</p>
+        </>
+      )
+    },
+    {
+      title: "5. Privacy and Data",
+      icon: <Lock className="h-5 w-5" />,
+      content: (
+        <>
+          <p className="mb-4">Our Privacy Policy explains how we handle your data:</p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>We do not require personal information to use the Service</li>
             <li>Emails are automatically deleted after 24 hours</li>
             <li>We do not store email contents long-term</li>
-            <li>Email data is encrypted in transit</li>
-            <li>We do not read or analyze email content</li>
+            <li>We may collect minimal usage data for analytics</li>
           </ul>
+          <p>By using the Service, you consent to our data practices as described in our <Link to="/privacy" className="text-[#10B981] hover:underline">Privacy Policy</Link>.</p>
         </>
       )
     },
     {
-      title: "4. Data Sharing and Disclosure",
+      title: "6. Service Limitations",
+      icon: <AlertTriangle className="h-5 w-5" />,
+      content: (
+        <>
+          <p className="mb-4">The Service has certain limitations:</p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>Emails are temporary and will expire</li>
+            <li>We cannot recover deleted emails</li>
+            <li>Service may be interrupted for maintenance</li>
+            <li>We impose rate limits to prevent abuse</li>
+          </ul>
+          <p>We reserve the right to modify or discontinue the Service at any time without notice.</p>
+        </>
+      )
+    },
+    {
+      title: "7. Liability Disclaimer",
       icon: <ShieldCheck className="h-5 w-5" />,
       content: (
         <>
-          <p className="mb-4">We do not sell, trade, or rent your personal information. We may share data only:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>When required by law or legal process</li>
-            <li>To protect our rights and safety</li>
-            <li>With service providers who assist our operations</li>
-            <li>In case of business transfer or merger</li>
-          </ul>
+          <p className="mb-4">THE SERVICE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. TO THE FULLEST EXTENT PERMITTED BY LAW, VOIDMAIL.FUN DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED.</p>
+          <p>In no event shall Voidmail.fun be liable for any indirect, incidental, special or consequential damages arising from your use of the Service.</p>
         </>
       )
     },
     {
-      title: "5. Your Privacy Rights",
-      icon: <UserCheck className="h-5 w-5" />,
+      title: "8. Changes to Terms",
+      icon: <AlertTriangle className="h-5 w-5" />,
       content: (
         <>
-          <p className="mb-4">You have the right to:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Access your personal data we hold</li>
-            <li>Request correction of inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Opt-out of data collection where possible</li>
-          </ul>
+          <p className="mb-4">We may modify these Terms at any time. When we do, we will update the "last updated" date at the top of this page.</p>
+          <p>Your continued use of the Service after such modifications constitutes acceptance of the revised Terms.</p>
         </>
       )
     },
     {
-      title: "6. Data Security",
-      icon: <Lock className="h-5 w-5" />,
-      content: (
-        <>
-          <p className="mb-4">We implement security measures to protect your data:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Encryption of data in transit and at rest</li>
-            <li>Regular security audits and updates</li>
-            <li>Access controls and authentication</li>
-            <li>Secure server infrastructure</li>
-          </ul>
-        </>
-      )
-    },
-    {
-      title: "7. Cookies and Tracking",
-      icon: <Eye className="h-5 w-5" />,
-      content: (
-        <>
-          <p className="mb-4">We use minimal cookies and tracking:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Essential cookies for service functionality</li>
-            <li>Analytics cookies to improve our service</li>
-            <li>No third-party advertising cookies</li>
-            <li>You can disable cookies in your browser</li>
-          </ul>
-        </>
-      )
-    },
-    {
-      title: "8. Children's Privacy",
+      title: "9. Governing Law",
       icon: <ShieldCheck className="h-5 w-5" />,
       content: (
-        <>
-          <p className="mb-4">Our service is not intended for children under 13:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>We do not knowingly collect data from children under 13</li>
-            <li>If we discover we have collected such data, we will delete it</li>
-            <li>Parents should contact us if they believe we have collected their child's data</li>
-          </ul>
-        </>
-      )
-    },
-    {
-      title: "9. Changes to Privacy Policy",
-      icon: <Eye className="h-5 w-5" />,
-      content: (
-        <>
-          <p className="mb-4">We may update this Privacy Policy from time to time:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Changes will be posted on this page</li>
-            <li>We will notify users of significant changes</li>
-            <li>Continued use constitutes acceptance of changes</li>
-            <li>Check this page regularly for updates</li>
-          </ul>
-        </>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction where Voidmail.fun operates, without regard to its conflict of law provisions.</p>
       )
     }
   ];
@@ -161,7 +143,7 @@ const PrivacyPolicy = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             <span className="bg-gradient-to-r from-[#10B981] to-[#3B82F6] bg-clip-text text-transparent">
-              Privacy Policy
+              Terms of Service
             </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -190,8 +172,8 @@ const PrivacyPolicy = () => {
 
         <div className="bg-[#151517] p-8 rounded-xl border border-[#ffffff08] mb-12">
           <h2 className="text-2xl font-bold mb-4 text-[#10B981]">Contact Information</h2>
-          <p className="text-gray-400 mb-4">For questions about this Privacy Policy, please contact us at:</p>
-          <p className="text-white">privacy@voidmail.fun</p>
+          <p className="text-gray-400 mb-4">For questions about these Terms, please contact us at:</p>
+          <p className="text-white">legal@voidmail.fun</p>
         </div>
       </main>
 
@@ -201,4 +183,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default Terms;

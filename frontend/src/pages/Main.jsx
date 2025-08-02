@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Copy, RefreshCw, Mail, Edit2, Share2, Forward, Crown, Sparkles, X } from "lucide-react";
+import { Copy, RefreshCw, Mail, Edit2, Share2, Forward } from "lucide-react";
 import { Toaster, toast } from "react-hot-toast";
 import { userAuthStore } from "../../store/userAuthStore";
-import { useWeb3Store } from "../../store/web3Store";
 import Footer from "../components/Footer";
 import CtaSection from "../components/CtaSection";
 import Navbar from "../components/Navbar";
-import CustomEmailCreator from "../components/CustomEmailCreator";
 
 const Main = () => {
   const { createSession, createEmail, getAllEmails } = userAuthStore();
-  const { isConnected } = useWeb3Store();
   const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
   const [inbox, setInbox] = useState([]);
@@ -18,13 +15,7 @@ const Main = () => {
   const [autorefresh, setAutorefresh] = useState(10);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState("inbox");
-  const [showPremiumBanner, setShowPremiumBanner] = useState(true);
-
-  // Debug log to verify component loads
-  useEffect(() => {
-    console.log("Main component loaded");
-  }, []);
+  const [activeTab, setActiveTab] = useState("create"); // Changed default to "create"
 
   // Restore session from localStorage
   useEffect(() => {
@@ -137,46 +128,21 @@ const Main = () => {
       <Toaster position="bottom-right" />
       <Navbar />
 
-      {/* Premium Features Banner */}
-      {showPremiumBanner && (
-        <div className="bg-gradient-to-r from-[#10B981]/10 to-[#3B82F6]/10 border-b border-[#10B981]/20 px-4 py-3">
-          <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Crown className="h-5 w-5 text-[#10B981]" />
-              <div>
-                <p className="text-sm font-medium text-white">
-                  🎉 <span className="text-[#10B981]">Premium Features Available!</span>
-                </p>
-                <p className="text-xs text-gray-400">
-                  Create custom emails with NFT ownership. Click "Premium" tab to get started.
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={() => setShowPremiumBanner(false)}
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      )}
-
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Header Section */}
-        <section className="relative py-20 px-6 overflow-hidden">
-          <div className="absolute w-[600px] h-[600px] bg-[#10B981]/10 blur-[120px] -top-32 left-1/2 -translate-x-1/2" />
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-6">
-              <span className="bg-gradient-to-r from-[#10B981] to-[#3B82F6] bg-clip-text text-transparent">
-                Web3 Email Platform
-              </span>
-            </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Temporary emails for privacy, custom emails with NFT ownership
-            </p>
-          </div>
-        </section>
+      <section className="relative py-20 px-6 overflow-hidden">
+        <div className="absolute w-[600px] h-[600px] bg-[#10B981]/10 blur-[120px] -top-32 left-1/2 -translate-x-1/2" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6">
+            <span className="bg-gradient-to-r from-[#10B981] to-[#3B82F6] bg-clip-text text-transparent">
+              Create it.
+            </span>
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Have questions or feedback? We'd love to hear from you.
+          </p>
+        </div>
+      </section>
 
         {/* Main Card */}
         <div className="bg-[#151517] rounded-2xl border border-[#ffffff08] overflow-hidden shadow-lg">
@@ -203,17 +169,6 @@ const Main = () => {
             >
               <Edit2 size={18} />
               Create Email
-            </button>
-            <button
-              className={`flex-1 py-4 font-medium flex items-center justify-center gap-2 ${
-                activeTab === "premium"
-                  ? "text-[#10B981] border-b-2 border-[#10B981]"
-                  : "text-gray-400 hover:text-white"
-              }`}
-              onClick={() => setActiveTab("premium")}
-            >
-              <Crown size={18} />
-              Premium
             </button>
           </div>
 
@@ -327,7 +282,7 @@ const Main = () => {
                   )}
                 </div>
               </div>
-            ) : activeTab === "create" ? (
+            ) : (
               <div className="text-center py-8">
                 <div className="max-w-md mx-auto">
                   <h3 className="text-xl font-semibold mb-6">Create Temporary Email</h3>
@@ -381,8 +336,6 @@ const Main = () => {
                   </div>
                 </div>
               </div>
-            ) : (
-              <CustomEmailCreator />
             )}
           </div>
         </div>

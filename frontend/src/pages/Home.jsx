@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
-import { Crown, Sparkles, Shield, Zap } from "lucide-react";
+import {
+  Sparkles,
+  ShieldCheck,
+  Clock,
+  MoveHorizontal,
+  Mail,
+  Lock,
+  Trash
+} from "lucide-react";
+
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import CtaSection from "../components/CtaSection";
 
 const Home = () => {
   return (
@@ -30,95 +41,19 @@ const Home = () => {
             Unlock the full potential of private communication with our secure disposable email solution.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/main">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#10B981] to-[#3B82F6] text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#10B981]/30 flex items-center gap-2">
-                Get Started
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </button>
-            </Link>
-            <Link to="/premium">
-              <button className="px-8 py-4 bg-[#ffffff08] hover:bg-[#ffffff12] text-white rounded-xl font-semibold transition-colors duration-300 border border-[#ffffff08] flex items-center gap-2">
-                <Crown className="h-5 w-5 text-[#10B981]" />
-                Premium Features
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Premium Features Section */}
-      <section className="py-20 bg-[#121214] border-y border-[#ffffff08]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Crown className="h-6 w-6 text-[#10B981]" />
-              <span className="text-[#10B981] font-semibold uppercase tracking-wider">Premium Features</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Custom Email Addresses with <span className="bg-gradient-to-r from-[#10B981] to-[#3B82F6] bg-clip-text text-transparent">NFT Ownership</span>
-            </h3>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Create your own custom email addresses and mint unique NFTs as proof of ownership
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <div className="bg-[#151517] rounded-2xl border border-[#ffffff08] p-8 hover:border-[#10B981]/30 transition-all">
-              <div className="w-12 h-12 bg-[#10B981]/10 rounded-lg flex items-center justify-center mb-6">
-                <Crown className="h-6 w-6 text-[#10B981]" />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Custom Domains</h4>
-              <p className="text-gray-400 mb-4">
-                Choose from premium domains like voidmail.fun, voidmail.email, and more
-              </p>
-              <div className="text-sm text-[#10B981] font-mono">
-                yourname@voidmail.fun
-              </div>
-            </div>
-
-            <div className="bg-[#151517] rounded-2xl border border-[#ffffff08] p-8 hover:border-[#10B981]/30 transition-all">
-              <div className="w-12 h-12 bg-[#10B981]/10 rounded-lg flex items-center justify-center mb-6">
-                <Sparkles className="h-6 w-6 text-[#10B981]" />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">NFT Certificate</h4>
-              <p className="text-gray-400 mb-4">
-                Each custom email comes with a unique NFT as proof of ownership
-              </p>
-              <div className="text-sm text-[#10B981] font-mono">
-                Minted on Solana
-              </div>
-            </div>
-
-            <div className="bg-[#151517] rounded-2xl border border-[#ffffff08] p-8 hover:border-[#10B981]/30 transition-all">
-              <div className="w-12 h-12 bg-[#10B981]/10 rounded-lg flex items-center justify-center mb-6">
-                <Shield className="h-6 w-6 text-[#10B981]" />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Secure Payment</h4>
-              <p className="text-gray-400 mb-4">
-                Pay with SOL cryptocurrency for instant, secure transactions
-              </p>
-              <div className="text-sm text-[#10B981] font-mono">
-                0.025 SOL per email
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <Link to="/premium">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#10B981] to-[#3B82F6] text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#10B981]/30 flex items-center gap-2 mx-auto">
-                <Crown className="h-5 w-5" />
-                Get Premium Access
-              </button>
-            </Link>
-          </div>
+          <Link to="/main">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#10B981] to-[#3B82F6] text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#10B981]/30 flex items-center gap-2 mx-auto">
+              Get Started
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </Link>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-[#0e0e10] border-y border-[#ffffff08]">
+      <section className="py-16 bg-[#121214] border-y border-[#ffffff08]">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           <div className="text-center p-8 border border-[#ffffff08] rounded-xl bg-[#ffffff03] hover:border-[#10B981]/30 transition-all">
             <div className="text-5xl font-bold text-[#10B981] mb-2">50K+</div>
@@ -136,6 +71,69 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-[#0e0e10]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">SECURE EMAIL EXPERIENCE</h2>
+            <div className="w-24 h-1 bg-[#10B981] mx-auto"></div>
+            <p className="text-gray-400 max-w-2xl mx-auto mt-6">
+              Our platform provides the tools you need to maintain privacy and security in your online communications.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Sparkles,
+                title: "Instant Creation",
+                text: "Generate new email addresses in one click with our lightning-fast system"
+              },
+              {
+                icon: ShieldCheck,
+                title: "Military-Grade Security",
+                text: "End-to-end encrypted communications with zero data retention"
+              },
+              {
+                icon: Clock,
+                title: "Self-Destructing",
+                text: "All emails and attachments automatically delete after 24 hours"
+              },
+              {
+                icon: Lock,
+                title: "No Registration",
+                text: "Use our service completely anonymously without any sign-up"
+              },
+              {
+                icon: Trash,
+                title: "Zero Spam",
+                text: "Keep your primary inbox clean from unwanted marketing emails"
+              },
+              {
+                icon: MoveHorizontal,
+                title: "Easy Forwarding",
+                text: "Optionally forward important emails to your main account"
+              }
+            ].map((feature, idx) => (
+              <div
+                key={idx}
+                className="p-8 bg-[#ffffff03] rounded-xl border border-[#ffffff08] hover:border-[#10B981]/30 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-lg bg-[#10B981]/10 flex items-center justify-center mb-6 group-hover:bg-[#10B981]/20 transition-colors">
+                  <feature.icon className="h-6 w-6 text-[#10B981]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-gray-400">{feature.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA and Footer */}
+      <CtaSection />
+      <Footer />
     </div>
   );
 };

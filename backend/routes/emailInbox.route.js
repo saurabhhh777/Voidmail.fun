@@ -2,7 +2,7 @@ import express from "express";
 
 const route = express.Router();
 
-import { getAllEmails, saveEmail  } from "../controllers/email.controller.js";
+import { getAllEmails, saveEmail  } from "../controllers/emailInbox.controller.js";
 
 
 route.route('/saveEmail').post(saveEmail);
